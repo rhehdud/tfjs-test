@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이리스 모델 로드</title>
+    <script type="module">
+        import * as tf from './tf.min.js'; // 로컬 파일 사용
+
+        async function loadModel() {
+            const modelPath = 'iris_model/content/iris_model/model.json'; // 상대 경로 설정
+            try {
+                const model = await tf.loadLayersModel(modelPath); // 모델 로드
+                document.getElementById('modelStatus').innerText = '모델이 성공적으로 로드되었습니다!';
+                // 모델을 사용하여 예측을 수행할 수 있습니다.
+            } catch (error) {
+                console.error('모델을 불러오는 데 오류가 발생했습니다:', error);
+                document.getElementById('modelStatus').innerText = '모델 로드 중 오류 발생.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('loadModelBtn').addEventListener('click', loadModel);
+        });
+    </script>
+</head>
+<body>
+    <h1>아이리스 모델 불러오기</h1>
+    <button id="loadModelBtn">모델 불러오기</button>
+    <div id="modelStatus"></div>
+</body>
+</html>
