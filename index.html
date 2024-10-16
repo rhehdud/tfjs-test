@@ -8,7 +8,7 @@
         import * as tf from './tf.min.js'; // 로컬 파일 사용
 
         async function loadModel() {
-            const modelPath = 'iris_model/content/iris_model/model.json'; // 상대 경로 설정
+            const modelPath = 'model.json'; // 상대 경로 설정
             try {
                 const model = await tf.loadLayersModel(modelPath); // 모델 로드
                 document.getElementById('modelStatus').innerText = '모델이 성공적으로 로드되었습니다!';
