@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이리스 모델 로드</title>
-    <script type="module">
-        import * as tf from './tf.min.js'; // 로컬 파일 사용
-
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> <!-- CDN에서 TensorFlow.js 로드 -->
+    <script>
         async function loadModel() {
             const modelPath = 'model.json'; // 상대 경로 설정
             try {
